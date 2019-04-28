@@ -1,0 +1,52 @@
+
+{% extends 'web/base.html' %}
+
+{% block css %}
+       {#  Bootstrap Core CSS  #}
+		<link href="{{ url_for('static', filename='web/css/bootstrap.min.css') }}" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="{{ url_for('static', filename='web/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='web/css/patros.css') }}" >
+{% endblock %}
+
+{% block top %}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+                       最帅的帅
+
+                    </a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right custom-menu">
+						<li class="active"><a href="/web/">Home</a></li>
+						<!--<li><a href="#about">About</a></li>-->
+						<!--<li><a href="#services">Services</a></li>-->
+						<!--<li><a href="#meet-team">Team</a></li>-->
+						<!--<li><a href="#portfolio1">Portofolio</a></li>-->
+						<!--<li><a href="#contact">Contact</a></li>-->
+						<li><a href="/web/blog/">Blog</a></li>
+						<li><a href="/web/single/">Single</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+{% endblock %}
+
+
+
+
+{% block js %}
+        <!-- jQuery -->
+		<script src="{{ url_for('static', filename='web/js/jquery.js') }}"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="{{ url_for('static', filename='web/js/bootstrap.min.js') }}"></script>
+{% endblock %}

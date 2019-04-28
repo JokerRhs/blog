@@ -1,0 +1,235 @@
+
+{% extends 'web/base_main.html' %}
+
+{% block title %}
+单身
+{% endblock %}
+
+
+{% block content %}
+    <!-- Page Content -->
+	    <div class="container blog singlepost">
+			<div class="row">
+				<article class="col-md-8">
+			        <h1 class="page-header sidebar-title">{{ art.art_title }}</h1>
+			        <img src="{{ url_for('static', filename='web/images/unsplash1.jpg') }}" class="img-responsive" alt="photo" />
+			        <hr>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="entry-meta">
+								<p> <span><i class="fa fa-calendar-o"></i> {{ art.art_time }}</span>
+								 <span><i class="fa fa-user"></i> Posted by <a href="#">admin</a></span>  
+								<span> <i class="fa fa-tag"></i> <span>{{ art.art_tag }}</span></span></p>
+								 <div class="pull-right"><span><i class="fa fa-eye"></i> 184</span> <span><i class="fa fa-comment"></i> {{ art.com.com_content | length }}</span></div>
+							</div>
+					</div>
+					</div>
+
+					<h2>{{ art.art_content | safe }}</h2>
+
+					<div class="mysharing">
+					<!-- Twitter -->
+					<a href="http://twitter.com/home?status=" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+					 <!-- Facebook -->
+					<a href="#/sharer/sharer.php?u=" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+					<!-- Google+ -->
+					<a href="https://plus.google.com/share?url=" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+					<!-- LinkedIn --> 
+					<a href="http://www.linkedin.com/shareArticle?mini=true" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+					</div>
+
+					<!-- Blog Comments -->
+			        <!--<div class="comments1">-->
+						<!--<div class="well">-->
+							<!--<h4>Leave a Comment:</h4>-->
+							<!--<form>-->
+								<!--<div class="form-group">-->
+									<!--<textarea class="form-control" rows="3"></textarea>-->
+								<!--</div>-->
+								<!--<button type="submit" class="btn btn-primary">Submit</button>-->
+							<!--</form>-->
+						<!--</div>-->
+						<!--<hr>-->
+						<!--<div class="media">-->
+							<!--<a class="pull-left" href="#">-->
+							 	<!--<img class="media-object" src="images/avatar1.png" alt="">-->
+							<!--</a>-->
+							<!--<div class="media-body">-->
+								<!--<h4 class="media-heading">Author Name-->
+									<!--<small>August 25, 2014 at 9:30 PM</small>-->
+								<!--</h4>-->
+								<!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="media">-->
+							<!--<a class="pull-left" href="#">-->
+							    <!--<img class="media-object" src="images/avatar1.png" alt="">-->
+							<!--</a>-->
+							<!--<div class="media-body">-->
+								<!--<h4 class="media-heading">Author Name-->
+									<!--<small>August 25, 2014 at 9:30 PM</small>-->
+								<!--</h4>-->
+								<!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.-->
+								<!--<div class="media">-->
+									<!--<a class="pull-left" href="#">-->
+										<!--<img class="media-object" src="images/avatar1.png" alt="">-->
+									<!--</a>-->
+									<!--<div class="media-body">-->
+										<!--<h4 class="media-heading">Author Name-->
+											<!--<small>August 25, 2014 at 9:30 PM</small>-->
+										<!--</h4>-->
+										<!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+			        <!--</div>-->
+			    </article>
+
+				<!-- Blog Sidebar Column -->
+				<aside class="col-md-4 sidebar-padding">
+					<div class="blog-sidebar">
+						<div class="input-group searchbar">
+							<input type="text" class="form-control searchbar" placeholder="Search for...">
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Search</button>
+							</span>
+						</div><!-- /input-group -->
+					</div>
+					<!-- Blog Categories -->
+					<div class="blog-sidebar">
+						<h4 class="sidebar-title"><i class="fa fa-list-ul"></i> Categories</h4>
+						<hr>
+						<ul class="sidebar-list">
+
+		                        <li><a href="#">{{ art.cate.cate_name }}</a></li>
+
+
+						</ul>
+					</div>
+					<!--&lt;!&ndash; Recent Posts &ndash;&gt;-->
+					<!--<div class="blog-sidebar">-->
+					    <!--<h4 class="sidebar-title"><i class="fa fa-align-left"></i> Recent Posts</h4>-->
+					    <!--<hr style="margin-bottom: 5px;">-->
+
+					    <!--<div class="media">-->
+					        <!--<a class="pull-left" href="#">-->
+					            <!--<img class="img-responsive media-object" src="images/blog1.jpg" alt="Media Object">-->
+					        <!--</a>-->
+					        <!--<div class="media-body">-->
+					            <!--<h4 class="media-heading"><a href="#">Post title 1</a></h4>-->
+					            <!--This is some sample text. This is some sample text. This is some sample text.-->
+					        <!--</div>-->
+					    <!--</div>-->
+
+					    <!--<div class="media">-->
+					        <!--<a class="pull-left" href="#">-->
+					            <!--<img class="img-responsive media-object" src="images/blog2.jpg" alt="Media Object">-->
+					        <!--</a>-->
+					        <!--<div class="media-body">-->
+					            <!--<h4 class="media-heading"><a href="#">Post title 2</a></h4>-->
+					            <!--This is some sample text. This is some sample text. This is some sample text.-->
+					        <!--</div>-->
+					    <!--</div>-->
+
+					    <!--<div class="media">-->
+					        <!--<a class="pull-left" href="#">-->
+					            <!--<img class="img-responsive media-object" src="images/blog3.jpg" alt="Media Object">-->
+					        <!--</a>-->
+					        <!--<div class="media-body">-->
+					            <!--<h4 class="media-heading"><a href="#">Post title 3</a></h4>-->
+					            <!--This is some sample text. This is some sample text. This is some sample text.-->
+					        <!--</div>-->
+					    <!--</div>-->
+					    <!--<div class="media">-->
+					        <!--<a class="pull-left" href="#">-->
+					            <!--<img class="img-responsive media-object" src="images/blog1.jpg" alt="Media Object">-->
+					        <!--</a>-->
+					        <!--<div class="media-body">-->
+					            <!--<h4 class="media-heading"><a href="#">Post title 4</a></h4>-->
+					            <!--This is some sample text. This is some sample text. This is some sample text.-->
+					        <!--</div>-->
+					    <!--</div>-->
+					<!--</div>-->
+
+					<!--<div class="blog-sidebar">-->
+					    <!--<h4 class="sidebar-title"><i class="fa fa-comments"></i> Recent Comments</h4>-->
+					    <!--<hr style="margin-bottom: 5px;">-->
+					     <!--<ul class="sidebar-list">-->
+					        <!--<li><h5 class="blog-title">Author Name</h5><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>-->
+					        <!--</li>-->
+					        <!--<li><h5 class="blog-title">Author Name</h5><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>-->
+					        <!--</li>-->
+					        <!--<li><h5 class="blog-title">Author Name</h5><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>-->
+					        <!--</li>-->
+					    <!--</ul>-->
+					<!--</div>-->
+
+				<!--</aside>-->
+			<!--</div>-->
+	    <!--</div>-->
+
+{% endblock %}
+
+
+{% block ajax %}
+
+        <!--Jquery Smooth Scrolling-->
+        <script>
+            $(document).ready(function(){
+                $('.custom-menu a[href^="#"], .intro-scroller .inner-link').on('click',function (e) {
+                    e.preventDefault();
+
+                    var target = this.hash;
+                    var $target = $(target);
+
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top
+                    }, 900, 'swing', function () {
+                        window.location.hash = target;
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            $(".nav a").on("click", function(){
+                     $(".nav").find(".active").removeClass("active");
+                    $(this).parent().addClass("active");
+            });
+        </script>
+
+        <script>
+        //jQuery for page scrolling feature - requires jQuery Easing plugin
+            $(function() {
+                $('a.page-scroll').bind('click', function(event) {
+                    var $anchor = $(this);
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1500, 'easeInOutExpo');
+                    event.preventDefault();
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $('body').append('<div id="toTop" class="btn btn-primary color1"><span class="glyphicon glyphicon-chevron-up"></span></div>');
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() != 0) {
+                            $('#toTop').fadeIn();
+                        } else {
+                            $('#toTop').fadeOut();
+                        }
+                    }); 
+                $('#toTop').click(function(){
+                    $("html, body").animate({ scrollTop: 0 }, 700);
+                    return false;
+                });
+            });
+        </script>
+
+
+
+
+{% endblock %}

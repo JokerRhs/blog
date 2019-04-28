@@ -1,0 +1,139 @@
+
+
+{% extends 'web/base_main.html' %}
+
+{% block title %}
+博客
+{% endblock %}
+
+{% block content %}
+		<!-- Page Content -->
+		<section class="container blog">
+			<div class="row">
+		        <!-- Blog Column -->
+		        <div class="col-md-8">
+		            <h1 class="page-header sidebar-title">
+		                个人博客
+		            </h1>
+		            <!-- First Blog Post -->
+					{% for i in art %}
+		            <div class="row blogu">
+		                <div class="col-sm-4 col-md-4 ">
+		                    <div class="blog-thumb">
+
+		                        <p>
+		                            <img class="img-responsive" src="/static/web/images/blog-photo{{ loop.index }}.jpg" alt="photo">
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="col-sm-8 col-md-8">
+		                    <h2 class="blog-title">
+		                        <a href="/web/single/{{ i.art_id }}/">{{ i.art_title }}</a>
+		                    </h2>
+		                    <p><i class="fa fa-calendar-o"></i>  {{ i.art_time }}
+		                        <span class="comments-padding"></span>
+		                        <i class="fa fa-comment"></i> {{ i.com.com_content | length }} comments
+		                    </p>
+		                    <p>{{ i.art_content | safe }}</p>
+		                </div>
+		            </div>
+					<hr>
+					{% endfor %}
+		            
+
+
+		            <div class="text-center"> 
+		                <ul class="pagination"> 
+		                    <li class="active">
+							{% for k in range(page_sum) %}
+								<li><a href="/web/blog/{{ loop.index }}/">{{ loop.index }}</a> </li>
+							{% endfor %}
+
+							</li>
+		                </ul>
+
+		            </div>
+
+
+
+		        </div>
+		            <!-- Blog Sidebar Column -->
+		            <aside class="col-md-4 sidebar-padding">
+		                <div class="blog-sidebar">
+		                    <div class="input-group searchbar">
+		                        <input type="text" class="form-control searchbar" placeholder="Search for...">
+		                        <span class="input-group-btn">
+		                        <button class="btn btn-default" type="button">Search</button>
+		                        </span>
+		                    </div><!-- /input-group -->
+		                </div>
+		                <!-- Blog Categories -->
+		                <div class="blog-sidebar">
+		                    <h4 class="sidebar-title"><i class="fa fa-list-ul"></i> 栏目分类</h4>
+		                    <hr>
+		                    <ul class="sidebar-list">
+								{% for j in cate %}
+		                        <li><a href="#">{{ j.cate_name }}</a></li>
+								{% endfor %}
+
+		                    </ul>
+		                </div>
+						</aside>
+
+				</div>
+		    </section>
+
+
+{% endblock %}
+
+
+{% block ajax %}
+
+        <!--Jquery Smooth Scrolling-->
+        <script>
+            $(document).ready(function(){
+                $('.custom-menu a[href^="#"], .intro-scroller .inner-link').on('click',function (e) {
+                    e.preventDefault();
+
+                    var target = this.hash;
+                    var $target = $(target);
+
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top
+                    }, 900, 'swing', function () {
+                        window.location.hash = target;
+                    });
+                });
+
+                $('a.page-scroll').bind('click', function(event) {
+                    var $anchor = $(this);
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1500, 'easeInOutExpo');
+                    event.preventDefault();
+                });
+
+               $(".nav a").on("click", function(){
+                     $(".nav").find(".active").removeClass("active");
+                    $(this).parent().addClass("active");
+            	});
+
+                $('body').append('<div id="toTop" class="btn btn-primary color1"><span class="glyphicon glyphicon-chevron-up"></span></div>');
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() != 0) {
+                            $('#toTop').fadeIn();
+                        } else {
+                            $('#toTop').fadeOut();
+                        }
+                    }); 
+                $('#toTop').click(function(){
+                    $("html, body").animate({ scrollTop: 0 }, 700);
+                    return false;
+                });
+
+            });
+        </script>
+
+
+
+{% endblock %}
